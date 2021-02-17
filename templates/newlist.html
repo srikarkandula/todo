@@ -1,0 +1,30 @@
+
+
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+<html lang="en">
+<head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <meta charset="UTF-8">
+    <title>New Item</title>
+    <style>
+        .body{
+        background-color:orange;
+        }
+
+    </style>
+</head>
+<body class="body">
+<h1>Create New Item </h1>
+    <br><br>
+<form method="POST" style="background-color:white">
+    {% csrf_token %}
+    {{form|crispy}}
+        <button  class="btn btn-info " type="submit">Create New</button>
+        <a href="{% url 'home' %}" class="btn btn-danger ">Go Back</a>
+</form>
+
+
+</body>
+</html>

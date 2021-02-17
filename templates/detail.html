@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+    <style>
+        .body{
+        background-color:purple;
+        }
+    </style>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body class="body">
+
+{% if items.timelimit %}
+<div class="card text-center" style="background-color:orange" >
+  <div class="card-header">
+    Date to be submitted - {{items.timelimit}}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{items.name}}</h5>
+    <p class="card-text">{{items.description}}</p>
+    <a href="{% url 'home' %}" class="btn btn-info">Go Back</a>
+  </div>
+  <div class="card-footer text-muted">
+      Created on - {{items.datecreated}}
+  </div>
+</div>
+{% else %}
+<div class="card text-center">
+
+  <div class="card-body">
+      <h3 class="card-title"><strong>{{items.name}}</strong></h3>
+    <h5 class="card-text">{{items.description}}</h5>
+    <a href="{% url 'home' %}" class="btn btn-info">Go Back</a>
+  </div>
+  <div class="card-footer text-muted">
+      Created on - {{items.datecreated}}
+  </div>
+</div>
+{% endif %}
+</body>
+</html>

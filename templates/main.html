@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To do app</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .body{
+        background-color:purple;
+        }
+        .main{
+        background-color:orange;
+
+
+        }
+    .item{
+    display:flex;
+    flex-style:row;
+
+    }
+    #btn{
+    position:absolute;
+    left:95%
+      }
+    #btn1{
+    position:absolute;
+    left:90%
+     }
+    .name{
+    padding-left:30px;
+
+    }
+    </style>
+</head>
+<body class="body">
+<center>
+    <div class="main">
+        <h1>To Do</h1>
+        <a href="{% url 'new'%}" class="btn btn-info btn-sm">Create New Item</a>
+        <br><br>
+
+    {% for item in items %}
+        <div class="item">
+           <div class="item">
+                <p><div class="name"><strong>{{item.name}}</strong>
+                    <a href="{% url 'delete' item.id %}"  id="btn" class="btn btn-danger btn-sm">Delete</a>
+                    <a href="{% url 'detail' item.id %}"  id="btn1" class="btn btn-info btn-sm">Info</a>
+
+           </div><br></div>
+            <hr>
+           </div>
+            <hr>
+{% endfor %}
+
+    </div>
+</center>
+</body>
+</html>
